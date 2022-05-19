@@ -14,7 +14,7 @@
 #include "shader.h"
 #include "elementBuffer.h"
 #include "vertexArray.h"
-#include "renderer.h"
+#include "contextManager.h"
 
 const unsigned int SCR_WIDTH = 900;
 const unsigned int SCR_HEIGHT = 900;
