@@ -4,7 +4,7 @@
 #include "vertexArray.h"
 #include "elementBuffer.h"
 
-struct Renderer
+struct ContextManager
 {
     //Creates a new context with given parameters
     GLFWwindow* makeContext(const unsigned int width,const unsigned int height)
@@ -39,12 +39,4 @@ struct Renderer
     {
         glClear(GL_COLOR_BUFFER_BIT);
     }
-
-    //Draw Triangles Command
-    void draw(const VertexArray& vao,const ElementBuffer& ebo,const Shader& shader) const
-    {
-        vao.bind();
-        glDrawElements(GL_TRIANGLES, ebo.getCount(), GL_UNSIGNED_INT, 0);
-    }
-
 };

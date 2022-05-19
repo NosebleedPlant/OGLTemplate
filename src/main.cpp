@@ -21,11 +21,11 @@ const unsigned int SCR_HEIGHT = 900;
 
 int main()
 {
-    Renderer renderer;
+    ContextManager contexManager;
     GLFWwindow *window;
 	try
 	{
-		window = renderer.makeContext(SCR_WIDTH, SCR_HEIGHT);
+		window = contexManager.makeContext(SCR_WIDTH, SCR_HEIGHT);
 	}
 	catch(int e)
 	{
@@ -69,8 +69,9 @@ int main()
 	while (!glfwWindowShouldClose(window))
 	{
 		// render
-		renderer.clear();
-		renderer.draw(vao,ebo,shader);
+		contexManager.clear();
+		vao.bind();
+        glDrawElements(GL_TRIANGLES, ebo.getCount(), GL_UNSIGNED_INT, 0);
 
 		// glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
 		glfwSwapBuffers(window);
